@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コンテンツ東京2026 セミナーまとめ｜初見者向けレポート</title>
+<style>
+  :root{
+    --ink:#1a1d24; --ink-soft:#4a5160; --line:#e6e8ee; --bg:#f6f7fb; --card:#ffffff;
+    --brand:#2b4eff; --brand-soft:#eef1ff;
+    --s1:#e8552d; --s1b:#fdeee9;
+    --s2:#c0392b; --s2b:#fbeceb;
+    --s3:#7b3fe4; --s3b:#f1ebfc;
+    --s4:#0e9f6e; --s4b:#e7f6f0;
+    --s5:#1565c0; --s5b:#e8f1fb;
+    --active:#0a7d4d; --tsugu:#e8552d;
+    --warn:#b06a00; --warnb:#fff6e6;
+    --radius:18px; --shadow:0 1px 3px rgba(20,25,40,.06),0 10px 30px rgba(20,25,40,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",system-ui,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.85; -webkit-font-smoothing:antialiased;
+    letter-spacing:.01em;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  /* HERO */
+  header.hero{
+    background:linear-gradient(135deg,#11142b 0%,#1f2960 55%,#2b4eff 130%);
+    color:#fff;padding:64px 0 56px;position:relative;overflow:hidden;
+  }
+  header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+    background:radial-gradient(circle,rgba(123,63,228,.45),transparent 60%);}
+  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;font-weight:700;
+    background:rgba(255,255,255,.12);padding:7px 14px;border-radius:999px;margin-bottom:20px}
+  header.hero h1{font-size:clamp(26px,4.4vw,42px);line-height:1.35;font-weight:800;margin-bottom:18px}
+  header.hero p.lead{font-size:clamp(15px,1.8vw,18px);max-width:760px;color:#dfe3ff}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .meta-chip{font-size:13px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+    padding:8px 14px;border-radius:10px}
+  /* NAV */
+  nav.toc{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:11px 22px}
+  nav.toc a{white-space:nowrap;font-size:13.5px;font-weight:600;color:var(--ink-soft);
+    text-decoration:none;padding:8px 13px;border-radius:9px;transition:.18s}
+  nav.toc a:hover{background:var(--brand-soft);color:var(--brand)}
+  /* SECTIONS */
+  section{padding:52px 0}
+  .section-label{display:flex;align-items:center;gap:13px;margin-bottom:8px}
+  .num-badge{flex:none;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+    font-weight:800;font-size:19px;color:#fff}
+  h2.sect{font-size:clamp(20px,2.6vw,27px);font-weight:800;line-height:1.4}
+  .sub-tag{font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--ink-soft);margin-left:59px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:26px 28px;margin-top:20px}
+  .card h3{font-size:17px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+  .card h3 .ic{font-size:18px}
+  .card p{color:var(--ink-soft);font-size:15px}
+  .card p+p{margin-top:10px}
+  .tldr{border-left:5px solid var(--brand);background:var(--brand-soft)}
+  .tldr p{color:#27306b;font-weight:500}
+  .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .who span{font-size:12.5px;background:#f0f2f7;border:1px solid var(--line);
+    padding:6px 11px;border-radius:8px;color:var(--ink-soft)}
+  /* term glossary */
+  .terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:6px}
+  .term{background:#fafbff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .term b{display:block;font-size:13.5px;color:var(--ink);margin-bottom:3px}
+  .term span{font-size:13px;color:var(--ink-soft)}
+  /* flow */
+  .flow{display:grid;gap:10px;margin-top:6px}
+  .flow .step{display:grid;grid-template-columns:34px 1fr;gap:13px;align-items:start}
+  .flow .step .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    font-weight:800;font-size:14px;color:#fff}
+  .flow .step .t{padding-top:3px}
+  .flow .step .t b{font-size:15px}
+  .flow .step .t p{margin-top:2px;font-size:14px}
+  /* infographic */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:6px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+  .stat .big{font-size:clamp(26px,4vw,34px);font-weight:800;line-height:1.1}
+  .stat .unit{font-size:14px;font-weight:700}
+  .stat .lbl{font-size:12.5px;color:var(--ink-soft);margin-top:7px}
+  .stat .src{font-size:11px;color:#9aa0ad;margin-top:6px}
+  .bar-row{margin-top:10px}
+  .bar-row .bl{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px}
+  .bar-track{height:13px;background:#eef0f6;border-radius:99px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:99px}
+  /* compare table */
+  table.cmp{width:100%;border-collapse:collapse;margin-top:6px;font-size:14px;overflow:hidden;
+    border-radius:12px;border:1px solid var(--line)}
+  table.cmp th,table.cmp td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:#f3f5fb;font-size:13px;font-weight:800;color:var(--ink)}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{font-weight:700;white-space:nowrap}
+  /* apply box */
+  .apply{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:20px}
+  .apply .head{padding:14px 22px;font-weight:800;font-size:15px;color:#fff;display:flex;align-items:center;gap:9px}
+  .apply .body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .apply .col{padding:20px 22px}
+  .apply .col.a{background:var(--s4b)}
+  .apply .col.t{background:var(--s1b);border-left:1px solid var(--line)}
+  .apply .col h4{font-size:14px;font-weight:800;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+  .apply .col.a h4{color:var(--active)}
+  .apply .col.t h4{color:var(--tsugu)}
+  .apply .col ul{list-style:none;display:grid;gap:9px}
+  .apply .col li{font-size:14px;color:var(--ink-soft);padding-left:18px;position:relative}
+  .apply .col li::before{content:"▸";position:absolute;left:0;top:0;color:inherit;font-size:12px}
+  .apply .col.a li::before{color:var(--active)}
+  .apply .col.t li::before{color:var(--tsugu)}
+  /* note */
+  .note{background:var(--warnb);border:1px solid #f0dcb0;border-radius:12px;padding:13px 16px;
+    font-size:13px;color:var(--warn);margin-top:14px}
+  .note b{color:#8a5200}
+  /* synthesis */
+  .syn-hero{background:linear-gradient(135deg,#11142b,#272f63);color:#fff;border-radius:22px;padding:34px 32px}
+  .syn-hero h2{font-size:clamp(20px,2.6vw,26px);font-weight:800;margin-bottom:8px}
+  .syn-hero p{color:#cdd2f5;font-size:15px;max-width:760px}
+  .theme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:22px}
+  .theme{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .theme .tn{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--brand);margin-bottom:9px}
+  .theme h4{font-size:16px;font-weight:800;margin-bottom:8px}
+  .theme p{font-size:13.5px;color:var(--ink-soft)}
+  .link-map{display:grid;gap:10px;margin-top:18px}
+  .link-map .lm{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;box-shadow:var(--shadow)}
+  .link-map .lm .tag{font-size:12px;font-weight:800;color:#fff;padding:6px 11px;border-radius:8px;white-space:nowrap}
+  .link-map .lm p{font-size:14px;color:var(--ink-soft)}
+  footer{background:#11142b;color:#aeb4d6;padding:40px 0;font-size:13px}
+  footer .wrap{display:grid;gap:14px}
+  footer b{color:#fff}
+  footer a{color:#9fb0ff}
+  .src-list{font-size:12px;color:#7c829f;line-height:1.7}
+  @media(max-width:720px){
+    .apply .body{grid-template-columns:1fr}
+    .apply .col.t{border-left:none;border-top:1px solid var(--line)}
+    .sub-tag{margin-left:0;margin-top:6px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">CONTENT TOKYO 2026 ・ SEMINAR DIGEST</span>
+    <h1>コンテンツ東京2026<br>セミナーまとめ ― 初見者向けレポート</h1>
+    <div class="meta-row">
+      <span class="meta-chip">📅 2026.06.23 開催</span>
+      <span class="meta-chip">🗂 全5セッション</span>
+      <span class="meta-chip">🎯 ブランド設計 / IP / バーチャル / コミュニティ / AI・XR</span>
+      <span class="meta-chip">👤 対象：初見者・実務応用検討者</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== NAV ===================== -->
+<nav class="toc">
+  <div class="wrap">
+    <a href="#intro">全体マップ</a>
+    <a href="#s1">①ブランド設計</a>
+    <a href="#s2">②グローバルIP</a>
+    <a href="#s3">③バーチャル体験</a>
+    <a href="#s4">④コミュニティ</a>
+    <a href="#s5">⑤AI・XR</a>
+    <a href="#synthesis">イベント総括</a>
+  </div>
+</nav>
+
+<!-- ===================== INTRO MAP ===================== -->
+<section id="intro">
+  <div class="wrap">
+    <div class="section-label">
+      <div class="num-badge" style="background:var(--brand)">◎</div>
+      <h2 class="sect">このレポートの全体マップ</h2>
+    </div>
+    <div class="card">
+      <p>
+        5つのセッションは一見バラバラのテーマですが、根っこは共通しています。それは
+        <strong>「企業が一方的に情報を流す時代は終わり、ファン・顧客・社内の人を“当事者”として巻き込み、関係を設計して長く選ばれ続ける仕組みをどう作るか」</strong>
+        という問いです。下のマップで、各セッションが何を扱っているかを掴んでから読み進めてください。
+      </p>
+      <div class="theme-grid" style="margin-top:18px">
+        <div class="theme" style="border-top:4px solid var(--s1)"><div class="tn" style="color:var(--s1)">SESSION 01</div><h4>選ばれるブランドの設計</h4><p>味の素・ライオン。組織そのものを変えてブランドを作る「総力戦」の話。</p></div>
+        <div class="theme" style="border-top:4px solid var(--s2)"><div class="tn" style="color:var(--s2)">SESSION 02</div><h4>グローバルIP展開戦略</h4><p>集英社・バンダイナムコ。日本の作品を世界で売る「ワンチーム」の話。</p></div>
+        <div class="theme" style="border-top:4px solid var(--s3)"><div class="tn" style="color:var(--s3)">SESSION 03</div><h4>バーチャル体験の拡散設計</h4><p>VRChat・サンリオ・あしび。ファンが共創する「居場所」の話。</p></div>
+        <div class="theme" style="border-top:4px solid var(--s4)"><div class="tn" style="color:var(--s4)">SESSION 04</div><h4>ファンコミュニティの設計</h4><p>ヤッホー・日本ハム・ダイソー。つながり続ける仕組みの話。</p></div>
+        <div class="theme" style="border-top:4px solid var(--s5)"><div class="tn" style="color:var(--s5)">SESSION 05</div><h4>AI・XRで広がる現場活用</h4><p>日立・川崎重工・Microsoft。技術伝承と人材育成の話。</p></div>
+      </div>
+      <div class="note">
+        <b>本レポートの作成方針：</b>記載した事実・数値はすべて添付議事録に基づきます。議事録に根拠のない数値は推測で補わず、必要なものは「議事録に記載なし」と明示しています。製品名・数値の一部はWeb検索で裏取りした旨を該当箇所に注記しています。
+        なお制作にあたり指定の社内デザイン規定ファイル（frontend-design SKILL）は本環境に存在せず参照できなかったため、一般的なWebデザイン原則で作成しています。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SESSION 1 ===================== -->
+<section id="s1" style="background:var(--s1b)">
+  <div class="wrap">
+    <div class="section-label">
+      <div class="num-badge" style="background:var(--s1)">1</div>
+      <h2 class="sect">選ばれるブランドは何を設計しているか？</h2>
+    </div>
+    <div class="sub-tag">マーケティングデザイン トップ対談 ／ 味の素・ライオン</div>
+
+    <div class="card tldr">
+      <h3><span class="ic">💡</span>ひとことで言うと</h3>
+      <p>
+        「良い広告を作る」だけでは、もうブランドは選ばれない。R&D（研究開発）から販売・顧客との対話までを横断する
+        <strong>“組織そのものの作り変え”</strong>こそがブランド設計だ――というトップ対談。
+        味の素とライオンが、専門部署「マーケティングデザインセンター」を作って何を変えたのかを語りました。
+      </p>
+      <div class="who">
+        <span>👤 司会：マーケティング特化AIでブランド運用OSを開発中のモデレーター</span>
+        <span>🏢 向井さん（味の素）</span>
+        <span>🏢 大村さん（ライオン）</span>
+        <span>🏢 松本さん（味の素）</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📖</span>専門用語をやさしく補足</h3>
+      <div class="terms">
+        <div class="term"><b>マーケティングデザインセンター</b><span>短期の売上を追う事業部では手が回らない、中長期のブランド投資や手法の変革を担う専門部署。</span></div>
+        <div class="term"><b>D2C（ディーツーシー）</b><span>Direct to Consumer。問屋や小売を介さず、企業がSNSや自社ECで消費者と直接つながり売る形。</span></div>
+        <div class="term"><b>IMC</b><span>統合型マーケティングコミュニケーション。広告・PR・SNSなどをバラバラでなく一つの流れとして設計すること。</span></div>
+        <div class="term"><b>ホワイトスペース</b><span>まだ誰も応えていない、消費者の隠れたニーズ（空白市場）。</span></div>
+        <div class="term"><b>LTV</b><span>顧客生涯価値。1回の購入額でなく、長く付き合う中で生む総額で顧客を捉える考え方。</span></div>
+        <div class="term"><b>縦割り組織</b><span>部署ごとに分断され、横の連携が弱い組織。顧客の本質的な課題を見失いやすい。</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">🔀</span>話の流れ（導入 → 本題 → 結論）</h3>
+      <div class="flow">
+        <div class="step"><div class="n" style="background:var(--s1)">1</div><div class="t"><b>導入：なぜ組織を変えるのか</b><p>情報過多でマス広告が効きにくく、生活者の選択肢に入りにくい。縦割りでは顧客の本質課題を見失う。だから事業戦略の段階からマーケが関わる必要がある。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s1)">2</div><div class="t"><b>本題：味の素「リミッター解除」</b><p>SNS分析で「市販品では本格的な麻婆豆腐は作れない」という不満（ホワイトスペース）を発見。「リミッター解除」というコンセプトを立て、Cook Do「極 麻辣麻婆豆腐」を統合設計でヒットさせた。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s1)">3</div><div class="t"><b>本題：変革を阻む壁</b><p>変革は技術的な「できる・できない」ではなく「やる・やらない」の意思決定。壁の正体は担当者の多忙と社内の上申・合意形成の不備。受託側は“稟議を通すストーリー”の支援が重要。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s1)">4</div><div class="t"><b>結論：これからの3つの課題</b><p>①人事異動に左右されない運用の仕組み（OS）、②部門間の共通言語、③専門性を維持する人事・組織体制。この3点を整えることが今後の鍵。</p></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📊</span>数字で見る（出典：議事録／一部Web確認）</h3>
+      <div class="stat-grid">
+        <div class="stat"><div class="big" style="color:var(--s1)">約13<span class="unit">年</span></div><div class="lbl">向井氏のクリエイティブ部門経験</div><div class="src">出典：議事録</div></div>
+        <div class="stat"><div class="big" style="color:var(--s1)">50<span class="unit">人</span></div><div class="lbl">「応援してくれる人を作る」で社内突破した目標人数</div><div class="src">出典：議事録</div></div>
+        <div class="stat"><div class="big" style="color:var(--s1)">2024<span class="unit">年〜</span></div><div class="lbl">ライオンが宣伝部門を事業部門と統合した時期</div><div class="src">出典：議事録</div></div>
+        <div class="stat"><div class="big" style="color:var(--s1)">2,000<span class="unit">万食</span></div><div class="lbl">Cook Do「極」シリーズ累計（参考・社外実績）</div><div class="src">Web確認：味の素 2025/10発表</div></div>
+      </div>
+      <div class="note"><b>補足：</b>「2,000万食」は議事録には無く、製品の実在と勢いを裏取りするためWeb検索で確認した社外公表値です（Cook Do「極」3品の累計、味の素プレスリリース2025年10月）。議事録内に明示された個別商品の販売数値は記載なしです。</div>
+    </div>
+
+    <div class="apply">
+      <div class="head" style="background:var(--s1)"><span>🎯</span>これが実務でどう役立つか</div>
+      <div class="body">
+        <div class="col a">
+          <h4><span>❄️</span>株式会社アクティブ（親会社）への活用</h4>
+          <ul>
+            <li>冷凍食品でも「マス向けに味・仕様を丸める」発想を一度外し、SNSの声から“尖ったニーズ（ホワイトスペース）”を探して新商品コンセプトに。</li>
+            <li>営業・販促・採用が縦割りで動くと取引先の本質課題を見失う。社内に「共通言語」を作り、商品開発の段階から販促視点を入れる。</li>
+            <li>新施策が現場で止まる原因は“稟議が通らない”こと。提案時に「決裁を通すためのストーリー・資料」までセットで用意する。</li>
+          </ul>
+        </div>
+        <div class="col t">
+          <h4><span>🎨</span>TSUGUとしての協力</h4>
+          <ul>
+            <li>「リミッター解除」のような<strong>合言葉（コンセプトワード）</strong>づくりは、まさにコミュニケーションディレクションの領域。アクティブの新商品・販促の旗印を一緒に設計できる。</li>
+            <li>属人化しがちなブランド運用を、AI活用の“運用OS”や言語化されたガイドに落とし込み、人事異動でも崩れない仕組みづくりを支援。</li>
+            <li>TSUGUアカデミーで、アクティブ社内に「共通言語」と「デザイン・AIの基礎」を教育し、横断連携の土台を作る。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SESSION 2 ===================== -->
+<section id="s2">
+  <div class="wrap">
+    <div class="section-label">
+      <div class="num-badge" style="background:var(--s2)">2</div>
+      <h2 class="sect">世界で愛されるコンテンツへ ― グローバルIP展開戦略</h2>
+    </div>
+    <div class="sub-tag">集英社（週刊少年ジャンプ）・バンダイナムコ</div>
+
+    <div class="card tldr" style="border-left-color:var(--s2)">
+      <h3><span class="ic">💡</span>ひとことで言うと</h3>
+      <p>
+        日本の作品（IP）が世界でヒットする背景には、<strong>「魅力的なキャラクター」「過去の失敗に学ぶものづくり」「関係者全員が同じ目標を持つワンチーム体制」</strong>がある。
+        集英社とバンダイナムコが、ジャンプ作品やONE PIECEの事例で“勝ち続ける仕組み”を語りました。
+      </p>
+      <div class="who">
+        <span>📚 辻様（集英社・元ジャンプ編集長）</span>
+        <span>🎮 辻太郎さん（バンダイ 常務／CTO）</span>
+        <span>🎮 バンダイナムコ ライセンス担当</span>
+        <span>📚 中野さん（集英社 編集者）</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📖</span>専門用語をやさしく補足</h3>
+      <div class="terms">
+        <div class="term"><b>IP</b><span>Intellectual Property。作品やキャラクターなど、価値を生む“知的財産”のこと。</span></div>
+        <div class="term"><b>メディアミックス</b><span>1つの作品を漫画・アニメ・映画・グッズ・ゲームなど複数の形で展開すること。</span></div>
+        <div class="term"><b>プライズ景品</b><span>ゲームセンターのクレーンゲームなどの景品。フィギュアが代表例。</span></div>
+        <div class="term"><b>ローカライズ</b><span>各国の文化・価値観・経済に合わせて、商品の仕様や表現を作り変えること。</span></div>
+        <div class="term"><b>ガラパゴス化</b><span>日本国内だけで通用し、世界基準から外れてしまっている状態。例：喫煙描写など。</span></div>
+        <div class="term"><b>ワンチーム</b><span>出版社・メーカー・権利者など、関わる全社が共通目標を持って一体で動くこと。</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">🔀</span>話の流れ（導入 → 本題 → 結論）</h3>
+      <div class="flow">
+        <div class="step"><div class="n" style="background:var(--s2)">1</div><div class="t"><b>導入：ジャンプの強さの源泉</b><p>創刊時に有名作家を使えなかったため「新人主義」と「読者アンケート至上主義」が根付いた。厳しい競争と淘汰が作品の強度を生む。核心は「友情・努力・勝利」以上に“国境を越える魅力的なキャラクター”。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s2)">2</div><div class="t"><b>本題：成功事例（ONE PIECE）</b><p>①プライズフィギュア＝原作を超える「質感」を追求し、アニメ展開と連動した発売タイミングで大ヒット。②カードゲーム＝過去3回の失敗を分析し、キャラ人気でなく“ゲームの面白さ”と運営体制で世界的成功。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s2)">3</div><div class="t"><b>本題：海外展開の壁</b><p>現地の好み・経済に合わせたローカライズ（例：アフリカ向けにフィギュアを筋肉質な体型へ）。紙と電子の価格差や海賊版が普及の障壁で、サブスク導入を検討。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s2)">4</div><div class="t"><b>結論：利益をクリエイターへ還元</b><p>世界で得た利益を漫画家など作り手に還元し、次の優れた作品へ再投資する“循環”を作ることが、勝ち続ける最重要条件。目標は「全世界初版1000万部」。</p></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📊</span>数字で見る（出典：議事録）</h3>
+      <div class="stat-grid">
+        <div class="stat"><div class="big" style="color:var(--s2)">1,000<span class="unit">万部</span></div><div class="lbl">掲げる目標「全世界初版」</div><div class="src">出典：議事録</div></div>
+        <div class="stat"><div class="big" style="color:var(--s2)">100<span class="unit">億円超</span></div><div class="lbl">劇場版アニメの興行収入（鬼滅・ONE PIECE等）</div><div class="src">出典：議事録</div></div>
+        <div class="stat"><div class="big" style="color:var(--s2)">3→4<span class="unit">回目</span></div><div class="lbl">カードゲーム：3回失敗し4回目で世界的成功</div><div class="src">出典：議事録</div></div>
+        <div class="stat"><div class="big" style="color:var(--s2)">35<span class="unit">年</span></div><div class="lbl">辻太郎氏の業界キャリア</div><div class="src">出典：議事録</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">🌏</span>海外展開の“成功の型”（議事録より整理）</h3>
+      <table class="cmp">
+        <thead><tr><th>要素</th><th>やったこと</th><th>狙い</th></tr></thead>
+        <tbody>
+          <tr><td>ものづくり</td><td>原作を超える質感をコスト度外視で追求</td><td>ファンの心を掴み、業界全体を活性化</td></tr>
+          <tr><td>話題づくり</td><td>アニメ展開と連動した最適な発売タイミング</td><td>注目が集まる瞬間に商品を当てる</td></tr>
+          <tr><td>ローカライズ</td><td>体型・彩色・価格を現地仕様に調整</td><td>現地の好み・経済状況に合わせる</td></tr>
+          <tr><td>表現の調整</td><td>喫煙描写など世界基準とズレる表現を見直し</td><td>不要な論争を避ける文化的配慮</td></tr>
+          <tr><td>ワンチーム</td><td>出版社・メーカー・権利者が共通目標で連携</td><td>サプライチェーン全体で成功を作る</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="apply">
+      <div class="head" style="background:var(--s2)"><span>🎯</span>これが実務でどう役立つか</div>
+      <div class="body">
+        <div class="col a">
+          <h4><span>❄️</span>株式会社アクティブ（親会社）への活用</h4>
+          <ul>
+            <li>約19,000社の取引先こそ“サプライチェーンのワンチーム”。仕入先・物流・小売を共通目標でつなぎ、単発取引でなく一体で売る関係を設計する。</li>
+            <li>「過去3回の失敗を分析して4回目で勝つ」姿勢を販促・営業に。失敗施策を捨てず、原因を言語化して次の打ち手に活かすナレッジ化。</li>
+            <li>冷凍食品の海外・インバウンド展開時は“ローカライズ発想”。味・パッケージ・価格を相手国/客層に合わせて作り変える前提を持つ。</li>
+          </ul>
+        </div>
+        <div class="col t">
+          <h4><span>🎨</span>TSUGUとしての協力</h4>
+          <ul>
+            <li>「原作を超える質感」への執着＝デザイン品質へのこだわり。アクティブの商品パッケージ・販促物の質を底上げする監修役を担える。</li>
+            <li>取引先を巻き込む共通ビジョン（ワンチームの旗印）を、資料・ビジュアルとして可視化。営業が語りやすい“物語”を作る。</li>
+            <li>失敗・成功の分析を蓄積する仕組みづくりと、その学びをTSUGUアカデミーで取引先教育コンテンツへ展開。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SESSION 3 ===================== -->
+<section id="s3" style="background:var(--s3b)">
+  <div class="wrap">
+    <div class="section-label">
+      <div class="num-badge" style="background:var(--s3)">3</div>
+      <h2 class="sect">バーチャル体験のヒットと拡散を生む設計とは</h2>
+    </div>
+    <div class="sub-tag">VRChat・サンリオ・あしびカンパニー</div>
+
+    <div class="card tldr" style="border-left-color:var(--s3)">
+      <h3><span class="ic">💡</span>ひとことで言うと</h3>
+      <p>
+        バーチャル空間（VRChat）でヒットを生む鍵は、コンテンツの出来栄え以上に
+        <strong>「誰と一緒に体験するか」と「ファンを“当事者”として巻き込む余白」</strong>。
+        企業はファンの二次創作を公式に受け止め、来場者数でなく“熱量・共創力”という新しいモノサシで評価する時代へ、という話。
+      </p>
+      <div class="who">
+        <span>🕶 北庄司さん（VRChat 日本責任者）</span>
+        <span>🎀 サンリオ（町田／川田）</span>
+        <span>👘 かずてさん（あしびカンパニー）</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📖</span>専門用語をやさしく補足</h3>
+      <div class="terms">
+        <div class="term"><b>VRChat</b><span>アバターで集まり交流する“没入型ソーシャル”プラットフォーム。VR機器なしでPCやiPhoneでも参加できる。</span></div>
+        <div class="term"><b>HMD</b><span>ヘッドマウントディスプレイ。頭に被るVRゴーグル。これが無くても参加できるのが普及の鍵。</span></div>
+        <div class="term"><b>UGC</b><span>User Generated Content。ユーザー自身が作るコンテンツ。VRChatの世界やアイテムの多くがこれ。</span></div>
+        <div class="term"><b>サードプレイス</b><span>家でも職場でもない第三の“居場所”。長時間滞在の理由になる。</span></div>
+        <div class="term"><b>当事者化</b><span>ファンが“見る人”から“作る・応援する・集まる人”に変わること。拡散の原動力。</span></div>
+        <div class="term"><b>CF（クラウドファンディング）</b><span>ファンから資金を募る仕組み。「5000%」は目標額の50倍が集まったという意味。</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📊</span>数字で見るVRChat（出典：議事録／一部Web確認）</h3>
+      <div class="stat-grid">
+        <div class="stat"><div class="big" style="color:var(--s3)">約16<span class="unit">万人</span></div><div class="lbl">同時接続ユーザー数</div><div class="src">議事録／Web確認済</div></div>
+        <div class="stat"><div class="big" style="color:var(--s3)">約25<span class="unit">万</span></div><div class="lbl">コミュニティ数</div><div class="src">出典：議事録</div></div>
+        <div class="stat"><div class="big" style="color:var(--s3)">第2<span class="unit">位</span></div><div class="lbl">日本の市場規模（世界で）</div><div class="src">議事録／Web確認済</div></div>
+        <div class="stat"><div class="big" style="color:var(--s3)">約700<span class="unit">名</span></div><div class="lbl">VRChatビジネスイベント参加者</div><div class="src">出典：議事録</div></div>
+      </div>
+      <div class="bar-row" style="margin-top:18px">
+        <div class="bl"><span>日本ユーザーのうちクリエイターとして活動する割合</span><span style="font-weight:800;color:var(--s3)">約50%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--s3)"></div></div>
+        <div class="src" style="font-size:11px;color:#9aa0ad;margin-top:6px">出典：議事録（「約半数がクリエイターとして活動」）</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">🚀</span>「超かぐや姫」が加速した3つの転機（議事録より）</h3>
+      <div class="flow">
+        <div class="step"><div class="n" style="background:var(--s3)">1</div><div class="t"><b>サンリオVフェス出演</b><p>大きな“人が集まる場”に登場し、認知と接点を一気に獲得。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s3)">2</div><div class="t"><b>ファンワールドを公式認定＋CF</b><p>ファンが作った世界を公式が受け止め、クラウドファンディングで巻き込み。<strong>CF 5000%達成</strong>。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s3)">3</div><div class="t"><b>熱量に応えるシークレット演出</b><p>盛り上がりに公式が応える仕掛けで、同時接続記録を更新する級のムーブメントに。</p></div></div>
+      </div>
+      <div class="note"><b>新しいKPIへの転換：</b>議事録では、評価軸を従来の「来場者数（ROI）」から「体験の質・コミュニティの熱量・共創力」へ移すべきだと提言。手段の目的化を避け「何を達成したいか」のビジョンを持つことが重要、とされています。</div>
+    </div>
+
+    <div class="apply">
+      <div class="head" style="background:var(--s3)"><span>🎯</span>これが実務でどう役立つか</div>
+      <div class="body">
+        <div class="col a">
+          <h4><span>❄️</span>株式会社アクティブ（親会社）への活用</h4>
+          <ul>
+            <li>販促を「来場者数・配布数」だけで測らず、ファンの熱量・口コミ・共創（レシピ投稿など）も成果として評価軸に加える。</li>
+            <li>取引先や社員が“当事者”になれる余白を設計。例：商品の活用アイデアやレシピを募り、公式が拾い上げて発信する。</li>
+            <li>大がかりなVRでなくても、「誰と体験するか」を中心に据えた採用イベント・取引先交流の場づくりに応用できる。</li>
+          </ul>
+        </div>
+        <div class="col t">
+          <h4><span>🎨</span>TSUGUとしての協力</h4>
+          <ul>
+            <li>HMD不要・低コストでも始められる体験設計（Canvaやデジタルツールでのファン参加型企画）をアクティブに提案・実装。</li>
+            <li>二次創作・ファン投稿を“公式が受け止める”運用ガイドラインとビジュアルの整備。炎上回避と巻き込みの両立を支援。</li>
+            <li>「新しいKPI（熱量・共創力）」の測り方と社内説明資料を設計し、アクティブの意思決定者が納得できる形に翻訳。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SESSION 4 ===================== -->
+<section id="s4">
+  <div class="wrap">
+    <div class="section-label">
+      <div class="num-badge" style="background:var(--s4)">4</div>
+      <h2 class="sect">ファンがファンを呼ぶ ― コミュニティの設計と現場のリアル</h2>
+    </div>
+    <div class="sub-tag">ヤッホーブルーイング・日本ハム（シャウエッセン）・ダイソー</div>
+
+    <div class="card tldr" style="border-left-color:var(--s4)">
+      <h3><span class="ic">💡</span>ひとことで言うと</h3>
+      <p>
+        コミュニティは“作ること”が目的ではなく、<strong>顧客理解を深め、企業の課題を解決するための「手段」</strong>。
+        ライトユーザーをファンに育て、社員が気づけない本音（インサイト）を掘り起こす。
+        AI時代には「認知」より、選ばれる瞬間に思い出される<strong>「早期＝想起」</strong>がより重要になる、という話。
+      </p>
+      <div class="who">
+        <span>🍺 佐藤（じゅんじゅん）さん（ヤッホーブルーイング）</span>
+        <span>🌭 藤井さん（日本ハム）</span>
+        <span>🛒 ナミキさん（ダイソー）</span>
+        <span>🎤 大島さん（モデレーター）</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📖</span>専門用語をやさしく補足</h3>
+      <div class="terms">
+        <div class="term"><b>ロイヤル化</b><span>たまに買う「ライトユーザー」を、繰り返し買う・応援する「熱心なファン」に育てること。</span></div>
+        <div class="term"><b>インサイト</b><span>本人も気づいていない“本音”や行動の理由。アンケートでは出にくい深層心理。</span></div>
+        <div class="term"><b>早期（想起）</b><span>何かを買おうとした瞬間に、真っ先に思い出してもらえる状態。AI時代に特に重要。</span></div>
+        <div class="term"><b>カテゴリエントリーポイント</b><span>「○○な時はコレ」という、思い出すきっかけ（利用シーン）の設計。</span></div>
+        <div class="term"><b>OMO</b><span>Online Merges with Offline。オンラインとリアルの体験を切れ目なくつなぐこと。</span></div>
+        <div class="term"><b>UGC</b><span>ユーザーが自発的に投稿してくれる写真・口コミなど。施策効果の検証材料になる。</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">🏢</span>3社のコミュニティ活用を比較（議事録より）</h3>
+      <table class="cmp">
+        <thead><tr><th>企業</th><th>軸となる取り組み</th><th>得ているもの</th></tr></thead>
+        <tbody>
+          <tr><td>ヤッホー<br>ブルーイング</td><td>ニックネーム文化に根ざした近い顧客関係。心理的安全性の高い場でファンの「好き」を言語化</td><td>ミッション共感を「仲間」関係へ。リアルの熱量をオンラインで恒常化</td></tr>
+          <tr><td>日本ハム<br>（シャウエッセン）</td><td>「夜のシャウエッセン」「シメシャウ」など新しい利用シーンを創出。コミュニティで定性検証</td><td>社員が気づかないロイヤル顧客のインサイト発見。他部門連携で効果増幅</td></tr>
+          <tr><td>ダイソー</td><td>「DAISOの輪」を3ブランド横断で運営。在庫検索アプリ連携、ロゴ共創</td><td>ブランド間の相互送客、新規参加者の定着、海外でも安心感のある信頼</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📐</span>KPIの考え方（議事録の提言）</h3>
+      <p>
+        コミュニティの成果を、いきなり「売上・ロイヤルティ」という最終成果で測ろうとすると、期待と現実のギャップに苦しむ。
+        まずは手前の指標――<strong>参加率・投稿数・UGC量・発話の変化</strong>――で施策の“解像度”を上げる。
+        そしてコミュニティを社内で孤立させず、他部門との「掛け算」で運用することが重要、と整理されました。
+      </p>
+      <div class="who" style="margin-top:6px">
+        <span>📈 手前の指標：参加率</span><span>📈 投稿数</span><span>📈 UGC量</span><span>📈 発話の変化</span>
+      </div>
+    </div>
+
+    <div class="apply">
+      <div class="head" style="background:var(--s4)"><span>🎯</span>これが実務でどう役立つか</div>
+      <div class="body">
+        <div class="col a">
+          <h4><span>❄️</span>株式会社アクティブ（親会社）への活用</h4>
+          <ul>
+            <li>約19,000社の取引先こそ“育てるべきコミュニティ”。一方通行の営業でなく、つながり続ける仕組み（情報共有・交流の場）でロイヤル化する。</li>
+            <li>冷凍食品の「新しい利用シーン」を提案し、想起のきっかけ（カテゴリエントリーポイント）を増やす。例：「忙しい夜は○○」のシーン訴求。</li>
+            <li>現場（営業・取引先）の声を集める“顧客理解ハブ”をコミュニティ化し、社員が気づけないインサイトを商品・販促に還元。</li>
+          </ul>
+        </div>
+        <div class="col t">
+          <h4><span>🎨</span>TSUGUとしての協力</h4>
+          <ul>
+            <li>取引先・社内コミュニティの設計・運営と、参加したくなるコンテンツ（投稿テーマ、ビジュアル）の継続供給を担う。</li>
+            <li>「手前のKPI」を可視化するダッシュボードや報告フォーマットを作り、コミュニティの価値を社内で説明可能にする。</li>
+            <li>TSUGUアカデミーで、アクティブ社員・取引先に向けた“顧客とつながる発信力”（SNS・Canva活用）の教育を提供。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SESSION 5 ===================== -->
+<section id="s5" style="background:var(--s5b)">
+  <div class="wrap">
+    <div class="section-label">
+      <div class="num-badge" style="background:var(--s5)">5</div>
+      <h2 class="sect">AIエージェント・フィジカルAIで拡がるXR活用事例</h2>
+    </div>
+    <div class="sub-tag">日立製作所・川崎重工・Microsoft（主催：メタバースジャパン／ジャパンスペーシャルフォーラム）</div>
+
+    <div class="card tldr" style="border-left-color:var(--s5)">
+      <h3><span class="ic">💡</span>ひとことで言うと</h3>
+      <p>
+        AI・XR（VR/MR）・フィジカルAIを使って、ベテランの“暗黙知”を次世代やロボットへどう受け継ぐか、という製造業の最前線。
+        ポイントは<strong>「人にしかできない作業」と「ロボット・AIに任せる作業」を見極め、業務そのものを再設計すること</strong>。
+        効率化で若手が経験を積めなくなる懸念にも踏み込みました。
+      </p>
+      <div class="who">
+        <span>🏭 秋山さん（日立製作所）</span>
+        <span>🏭 下田さん（川崎重工）</span>
+        <span>💻 鈴木さん（Microsoft）</span>
+        <span>🎓 富谷さん（法政大学・進行）</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">📖</span>専門用語をやさしく補足</h3>
+      <div class="terms">
+        <div class="term"><b>XR</b><span>VR（仮想現実）・MR（現実に情報を重ねる）などの総称。</span></div>
+        <div class="term"><b>フィジカルAI</b><span>カメラ映像などから物理世界の“次に起きること”を予測するAI。ロボット制御などに使う。</span></div>
+        <div class="term"><b>デジタルツイン</b><span>現実の設備や人を、デジタル空間にそっくり再現したもの。事前検証に使う。</span></div>
+        <div class="term"><b>AIエージェント</b><span>人の指示を待つだけでなく、目的に沿って自律的に作業を進めるAI。</span></div>
+        <div class="term"><b>身体知</b><span>「力加減」など、言葉にしづらく体で覚える知識。AIへの伝え方が課題。</span></div>
+        <div class="term"><b>守破離</b><span>習得の段階。型を守る→破る→離れて独自へ。AIは「守（型）」を教えるのが得意。</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">🏭</span>3社の取り組み（議事録より）</h3>
+      <table class="cmp">
+        <thead><tr><th>企業</th><th>やっていること</th><th>狙い</th></tr></thead>
+        <tbody>
+          <tr><td>日立製作所</td><td>メタバース×AIエージェント「NaiBi」。トラブル時に解決策を提示し、空間で手順を視覚誘導。熟練者の確認で知識が更新される循環</td><td>熟練者のドメインナレッジを次世代・ロボットへ継承。若手の判断力育成</td></tr>
+          <tr><td>川崎重工</td><td>VRで溶接の作業性を事前検証／MR（HoloLens）で3D作業指示・ハンズフリー化／デジタルヒューマンで作業姿勢検証／mocopiで遠隔支援</td><td>手戻り・コスト削減、技能伝承、若手の安心感と品質・安全向上</td></tr>
+          <tr><td>Microsoft</td><td>業務の「意図」を汲むプラットフォーム「Microsoft IQ」。Copilotからオートパイロットへ。クラウドだけでなくエッジ（現場PC）でもAI</td><td>社内ナレッジの理解→業務の自動処理。コストと現場制約への対応</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><b>表記の注記：</b>「NaiBi」「Microsoft IQ」「Microsoftスタンプ」「イクネンシャルAI」などの名称、および議事録末尾で言及された「上調理球膜」は、議事録の音声書き起こし表記のままです。正式名称・提供元は本まとめでは未確認のため、社外提示前に裏取りを推奨します。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ic">⚖️</span>議論の核心：AI時代の技術伝承と人材育成</h3>
+      <div class="flow">
+        <div class="step"><div class="n" style="background:var(--s5)">A</div><div class="t"><b>仕事の“仕分け”をする</b><p>すべてをAIに置き換えるのでなく、「人間にしかできない作業（伝承すべき）」と「ロボットに任せる高品質・高速作業」を見極める。危険・長時間作業は再設計の好機。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s5)">B</div><div class="t"><b>若手育成のジレンマに向き合う</b><p>熟練者がAIで効率化する一方、若手が“泥臭い経験”を積む機会が減る懸念。ゲーミフィケーションや「なぜこのやり方か」を考えさせる設計が必要。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s5)">C</div><div class="t"><b>ベテランの抵抗感を超える</b><p>若手は新技術を受け入れやすいが、ベテランは抵抗しがち。成功事例を見せる／意識せず使える形で業務に組み込む、が有効。</p></div></div>
+        <div class="step"><div class="n" style="background:var(--s5)">D</div><div class="t"><b>エモーショナルAIへ</b><p>感情など数値化しにくい要素を扱う方向へ。工学だけでなく心理学の知見、デジタルヒューマンをインターフェースに活用することが期待される。</p></div></div>
+      </div>
+    </div>
+
+    <div class="apply">
+      <div class="head" style="background:var(--s5)"><span>🎯</span>これが実務でどう役立つか</div>
+      <div class="body">
+        <div class="col a">
+          <h4><span>❄️</span>株式会社アクティブ（親会社）への活用</h4>
+          <ul>
+            <li>冷凍食品の製造・品質管理現場でも“技術伝承”は共通課題。ベテランの暗黙知（設備の癖・味の見極め）を言語化・記録する取り組みに直結。</li>
+            <li>AI導入は「全部置き換え」でなく仕事の仕分けから。人が担う価値（判断・対人）とAIに任せる定型作業を見極めて業務を再設計。</li>
+            <li>採用・若手育成で、ベテランが抵抗しない“意識せず使える”形のAI・ツール導入が、現場定着のコツになる。</li>
+          </ul>
+        </div>
+        <div class="col t">
+          <h4><span>🎨</span>TSUGUとしての協力</h4>
+          <ul>
+            <li>TSUGUアカデミーの<strong>AI教育</strong>がそのまま刺さる領域。アクティブ社内に「AIで効率化しつつ人の判断力を育てる」研修を設計・提供。</li>
+            <li>ベテランの抵抗感を下げる“成功事例の見せ方”や、現場が使いたくなるツール体験（Adobe・Canva・生成AI）の導入支援。</li>
+            <li>暗黙知を残すための言語化・ビジュアル化（手順書・動画マニュアル）を、クリエイティブの力で分かりやすく整備。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SYNTHESIS ===================== -->
+<section id="synthesis">
+  <div class="wrap">
+    <div class="syn-hero">
+      <h2>イベント全体の総括</h2>
+      <p>
+        5セッションを貫くのは、<strong style="color:#fff">「企業が一方的に発信する時代から、ファン・顧客・取引先・社員を“当事者”として巻き込み、関係を設計して長く選ばれ続ける」</strong>という共通テーマでした。
+        ブランド設計も、IP展開も、バーチャルも、コミュニティも、AI・技術伝承も、すべて“人を巻き込む仕組みづくり”という1本の糸でつながっています。
+      </p>
+    </div>
+
+    <div class="theme-grid">
+      <div class="theme"><div class="tn">共通テーマ ①</div><h4>当事者化・共創</h4><p>ファンや社内の人を“見る側”から“作る・応援する側”へ。二次創作の受容（S3）、コミュニティ共創（S4）、社内の味方50人づくり（S1）が同じ構造。</p></div>
+      <div class="theme"><div class="tn">共通テーマ ②</div><h4>ワンチーム / 横断</h4><p>縦割りを壊し、関係者を共通目標で束ねる。組織横断（S1）、サプライチェーンのワンチーム（S2）、他部門連携（S4）が響き合う。</p></div>
+      <div class="theme"><div class="tn">共通テーマ ③</div><h4>新しいモノサシ</h4><p>来場者数・売上だけで測らない。体験の質・熱量・共創力（S3）、手前のKPI（S4）、やる/やらないの意思決定（S1）へ評価軸が移る。</p></div>
+      <div class="theme"><div class="tn">共通テーマ ④</div><h4>仕組み化・継承</h4><p>属人化を超えて続く仕組みへ。運用OS（S1）、利益還元の循環（S2）、常設運営（S3）、技術伝承（S5）はすべて“持続性”の設計。</p></div>
+    </div>
+
+    <h3 style="margin:30px 0 4px;font-size:18px;font-weight:800">セッション同士のつながり</h3>
+    <div class="link-map">
+      <div class="lm"><span class="tag" style="background:var(--s1)">①×④</span><p>S1の「社内に味方50人を作る」とS4の「ライトユーザーをファンにする」は、<strong>“熱量のある少数を起点に巻き込む”</strong>同じ発想。社内にも社外にも効く。</p></div>
+      <div class="lm"><span class="tag" style="background:var(--s2)">②×③</span><p>S2の「ファンが何度も映画館へ＝テーマパーク化」とS3の「VRの居場所化」は、どちらも<strong>“コンテンツより体験・誰と一緒か”</strong>が価値を生む現象。</p></div>
+      <div class="lm"><span class="tag" style="background:var(--s4)">③×④</span><p>S3とS4はともに<strong>「ファン当事者化」と「新しいKPI」</strong>を主張。バーチャルかリアルかの違いだけで、設計思想はほぼ同じ。</p></div>
+      <div class="lm"><span class="tag" style="background:var(--s5)">①×⑤</span><p>S1の「人事異動で知が断絶する→運用OSへ」とS5の「ベテランの暗黙知を継承する」は、<strong>“属人知をどう仕組みに残すか”</strong>という同一課題のマーケ版／製造版。</p></div>
+    </div>
+
+    <div class="card" style="margin-top:26px;border:2px solid var(--active)">
+      <h3 style="color:var(--active)"><span class="ic">❄️</span>アクティブ × TSUGU への総合的な示唆</h3>
+      <p>
+        親会社アクティブは冷凍食品メーカーとして約19,000社の取引先を持ちます。今回のイベントの学びを一言でまとめると、
+        <strong>「その19,000社と社員を“取引相手”から“共に価値を作る当事者”へ変える関係設計が、これからの競争力になる」</strong>ということです。
+      </p>
+      <p>
+        営業は「売る」から「つながり続ける仕組み」へ（S4）、販促は「尖ったコンセプトと共通言語」で（S1）、
+        取引先は「ワンチーム」で束ね（S2）、社内教育・技術伝承は「AIで効率化しつつ人を育てる」設計へ（S5）。
+        そして成果は熱量・共創という新しいモノサシでも測る（S3）。
+      </p>
+      <p>
+        TSUGUはコミュニケーションディレクション、デザイン・AI教育（TSUGUアカデミー）という強みを通じて、これらの“仕組み化”を実装側で支える立場にあります。
+        コンセプト設計・コミュニティ運営・AI研修・クリエイティブ品質の底上げまで、アクティブの各部門（営業・採用・販促・社内教育）に横串で貢献できる余地が大きい、というのが本イベント全体からの結論です。
+      </p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
